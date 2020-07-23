@@ -22,8 +22,8 @@ public class EmployeeConveter {
 		dto.setEmail(entity.getEmail());
 		dto.setFirstName(entity.getFirstName());
 		dto.setLastName(entity.getLastname());
-		dto.setPhoneNumber(dto.getPhoneNumber());
-		dto.setSalary(dto.getSalary());
+		dto.setPhoneNumber(entity.getPhoneNumber());
+		dto.setSalary(entity.getSalary());
 		return dto;
 	}
 	public EmployeeDTO toEntity(EmployeeEntity entity ,EmployeeDTO dto) {

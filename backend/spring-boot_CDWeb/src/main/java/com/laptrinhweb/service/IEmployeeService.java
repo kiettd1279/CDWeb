@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.laptrinhweb.dto.EmployeeDTO;
 
-public interface JEmployeeService {
+public interface IEmployeeService {
 	EmployeeDTO save(EmployeeDTO dto);
 	List<EmployeeDTO> findAll();
 }

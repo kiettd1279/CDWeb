@@ -1,13 +1,26 @@
 package com.laptrinhweb.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmployeeDTO {
 	Long id;
 	String firstName;
 	String lastName;
 	String email;
 	String phoneNumber;
-	String jobId;
 	double salary;
+	List<JobHistoryDTO> listJH = new ArrayList<JobHistoryDTO>();
+	boolean active;
+	
+
+	public List<JobHistoryDTO> getListJH() {
+		return listJH;
+	}
+
+	public void setListJH(List<JobHistoryDTO> listJH) {
+		this.listJH = listJH;
+	}
 
 	public Long getId() {
 		return id;
@@ -47,14 +60,6 @@ public class EmployeeDTO {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public String getJobId() {
-		return jobId;
-	}
-
-	public void setJobId(String jobId) {
-		this.jobId = jobId;
 	}
 
 	public double getSalary() {

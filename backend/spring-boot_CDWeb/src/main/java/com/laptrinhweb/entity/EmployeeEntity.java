@@ -45,6 +45,38 @@ public class EmployeeEntity {
 	@OneToMany(mappedBy = "employee")
 	private List<TimeKeepingEntity> timeKeeping = new ArrayList<TimeKeepingEntity>();
 
+	@ManyToOne
+	@JoinColumn(name = "department_id")
+	private DeparmentEntity department;
+	
+	@Column(name = "cative" )
+	int active;
+	
+	
+	public List<JobHistoryEntity> getJobHistory() {
+		return jobHistory;
+	}
+
+	public void setJobHistory(List<JobHistoryEntity> jobHistory) {
+		this.jobHistory = jobHistory;
+	}
+
+	public List<TimeKeepingEntity> getTimeKeeping() {
+		return timeKeeping;
+	}
+
+	public void setTimeKeeping(List<TimeKeepingEntity> timeKeeping) {
+		this.timeKeeping = timeKeeping;
+	}
+
+	public DeparmentEntity getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(DeparmentEntity department) {
+		this.department = department;
+	}
+
 	public Long getId() {
 		return id;
 	}

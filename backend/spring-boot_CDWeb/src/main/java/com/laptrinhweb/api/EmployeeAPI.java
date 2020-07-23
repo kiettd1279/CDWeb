@@ -1,5 +1,7 @@
 package com.laptrinhweb.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,28 +13,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.laptrinhweb.dto.EmployeeDTO;
 import com.laptrinhweb.entity.EmployeeEntity;
-import com.laptrinhweb.service.JEmployeeService;
+import com.laptrinhweb.service.IEmployeeService;
 
 @CrossOrigin
 @RestController
 public class EmployeeAPI {
 	
 	@Autowired
-	private JEmployeeService employeeServe;
+	private IEmployeeService employeeServe;
 	
-	@GetMapping(name = "/employee")
-	public EmployeeDTO getAll() {
-		return null;
-	}
+	
+@GetMapping(value  = "/employee")
+	public List<EmployeeDTO> getAll(){
+	return employeeServe.findAll();
+}
 
-	@PostMapping(name = "/employee")
+	@PostMapping(value = "/employee")
 	public EmployeeDTO craet(@RequestBody EmployeeDTO model) {
 		return employeeServe.save(model);
 	}
 
-	@PutMapping(name = "/employee")
+	@PutMapping(value  = "/employee")
 	public EmployeeDTO update(@RequestBody EmployeeDTO model, @PathVariable("id") long id) {
-		return null;
+		model.setId(id);
+		return employeeServe.save(model);
 	}
 
 }

@@ -1,21 +1,28 @@
 package com.laptrinhweb.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhweb.conveter.EmployeeConveter;
+import com.laptrinhweb.conveter.JobHistoryConveter;
 import com.laptrinhweb.dto.EmployeeDTO;
+import com.laptrinhweb.dto.JobHistoryDTO;
 import com.laptrinhweb.entity.EmployeeEntity;
+import com.laptrinhweb.entity.JobHistoryEntity;
 import com.laptrinhweb.repository.EmployeeRepository;
-import com.laptrinhweb.service.JEmployeeService;
+import com.laptrinhweb.repository.JobHistoryRepository;
+import com.laptrinhweb.service.IEmployeeService;
 
 @Service
-public class EmployeeService implements JEmployeeService {
+public class EmployeeService implements IEmployeeService {
 
 	@Autowired 
 	private EmployeeConveter employeeConveter;
+	
+	@Autowired JobHistoryConveter jHConveter;
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -31,8 +38,19 @@ public class EmployeeService implements JEmployeeService {
 
 	@Override
 	public List<EmployeeDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	List<EmployeeEntity> listEntity = employeeRepository.findAll();
+	List<EmployeeDTO> listDTO = new ArrayList<EmployeeDTO>();
+	for (EmployeeEntity item : listEntity) {
+		List<JobHistoryEntity> listJobHistoryEntity =item.getJobHistory();
+		EmployeeDTO dto = employeeConveter.toDTO(item);
+		for (JobHistoryEntity itemJHEntity : listJobHistoryEntity) {
+			JobHistoryDTO dtoJobH = jHConveter.toDTO(itemJHEntity);
+			dto.getListJH().add(dtoJobH);
+		}
+		listDTO.add(dto);	
+	}
+	
+		return listDTO;
 	}
 	
 }

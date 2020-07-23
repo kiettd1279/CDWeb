@@ -18,16 +18,10 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "uCreateBy")
-	private String createdBy;
+	@Column(name = "userName")
+	private String UserName;
 	
-	@Column(name = "uCreatDate")
-	private Date creatDate;
+	@Column(name = "password")
+	private String password;
 	
-	@Column(name = "uModfiedBy")
-	private String modfiedBy;
-	
-	@Column(name = "uModfledDate")
-	private Date modfledDate;
-
 }
