@@ -26,13 +26,14 @@ public class EmployeeConveter {
 		dto.setSalary(entity.getSalary());
 		return dto;
 	}
-	public EmployeeDTO toEntity(EmployeeEntity entity ,EmployeeDTO dto) {
-		dto.setEmail(entity.getEmail());
-		dto.setFirstName(entity.getFirstName());
-		dto.setLastName(entity.getLastname());
-		dto.setPhoneNumber(dto.getPhoneNumber());
-		dto.setSalary(dto.getSalary());
-		return dto;
+	public EmployeeEntity toEntity(EmployeeEntity entity ,EmployeeDTO dto) {
+		entity.setEmail(dto.getEmail());
+		entity.setFirstName(dto.getFirstName());
+		entity.setLastname(dto.getLastName());
+		entity.setPhoneNumber(dto.getPhoneNumber());
+		entity.setSalary(dto.getSalary());
+		
+		return entity;
 		
 	}
 }

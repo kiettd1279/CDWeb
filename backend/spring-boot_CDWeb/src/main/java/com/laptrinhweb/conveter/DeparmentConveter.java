@@ -17,6 +17,7 @@ public class DeparmentConveter {
 
 	public DeparmentEntity toEntity(DeparmentDTO dto) {
 		DeparmentEntity entity = new DeparmentEntity();
+		
 		entity.setLocationId(dto.getLocationId());
 		entity.setName(dto.getName());
 		return entity;

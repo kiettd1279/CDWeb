@@ -45,6 +45,7 @@ public class DeparmentService implements IDeparmentService {
 	@Override
 	public DeparmentDTO save(DeparmentDTO dto) {
 		DeparmentEntity newEntity ;
+		
 		if (dto.getId() != null) {
 			DeparmentEntity oldEntity = departmanetReposiotry.findOne(dto.getId());
 			newEntity = departmentConverter.toEntity(dto, oldEntity);

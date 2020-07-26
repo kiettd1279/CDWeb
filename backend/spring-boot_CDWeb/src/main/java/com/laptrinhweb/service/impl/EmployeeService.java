@@ -31,7 +31,12 @@ public class EmployeeService implements IEmployeeService {
 	@Override
 	public EmployeeDTO save(EmployeeDTO dto) {
 		EmployeeEntity entity ;
-		entity = employeeConveter.toEntity(dto);
+		if (dto.getId()!=null) {
+			EmployeeEntity oldEntity = employeeRepository.findOne(dto.getId());
+			entity = employeeConveter.toEntity(oldEntity, dto);
+		}else {
+			entity = employeeConveter.toEntity(dto);
+		}
 		entity = employeeRepository.save(entity);
 		return employeeConveter.toDTO(entity);
 	}
@@ -51,6 +56,12 @@ public class EmployeeService implements IEmployeeService {
 	}
 	
 		return listDTO;
+	}
+
+	@Override
+	public EmployeeDTO findOneById(Long id) {
+		EmployeeEntity entity = employeeRepository.findOne(id);
+		return employeeConveter.toDTO(entity);
 	}
 	
 }

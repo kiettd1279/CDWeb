@@ -26,15 +26,21 @@ public class EmployeeAPI {
 	public List<EmployeeDTO> getAll() {
 		return employeeServe.findAll();
 	}
-
+	
+	
+	@GetMapping(value = "/employee/{id}")
+	public EmployeeDTO getEmployee(@PathVariable("id") long id) {
+		System.out.println(id);
+		return employeeServe.findOneById(id);
+	}
 	@PostMapping(value = "/employees")
 	public EmployeeDTO craet(@RequestBody EmployeeDTO model) {
 		return employeeServe.save(model);
 	}
-
-	@PutMapping(value = "/employees")
+	@PutMapping(value = "/employees/{id}")
 	public EmployeeDTO update(@RequestBody EmployeeDTO model, @PathVariable("id") long id) {
 		model.setId(id);
+	
 		return employeeServe.save(model);
 	}
 

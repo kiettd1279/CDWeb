@@ -26,8 +26,9 @@ public class DeparmentAPI {
 	public List<DeparmentDTO>getAllDerparment(){
 		return deparmentService.findAll();
 	}
-	@PostMapping(value = "/derparment")
+	@PostMapping(name  = "/derparment")
 	public DeparmentDTO creatDeparment(DeparmentDTO model) {
+		System.out.println(model.getName());
 		return deparmentService.save(model);
 		
 	}

@@ -7,4 +7,5 @@ import com.laptrinhweb.dto.EmployeeDTO;
 public interface IEmployeeService {
 	EmployeeDTO save(EmployeeDTO dto);
 	List<EmployeeDTO> findAll();
+	EmployeeDTO findOneById(Long id);
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.laptrinhweb.conveter.TimeKeepingConveter;
 import com.laptrinhweb.dto.DateTime;
 import com.laptrinhweb.dto.TimeKeepingDTO;
+import com.laptrinhweb.entity.EmployeeEntity;
 import com.laptrinhweb.entity.TimeKeepingEntity;
 import com.laptrinhweb.repository.EmployeeRepository;
 import com.laptrinhweb.repository.TimeKeepingRepository;
@@ -41,15 +42,29 @@ public class TimeKeepingService implements ITimeKeepingService{
 	public List<TimeKeepingDTO> saveAll() {
 		List<TimeKeepingEntity> oldList = timeKeepingRepository.findAll();
 		TimeKeepingDTO lastTimeKeepingDto = timeKeepingConveter.toDTO(oldList.get(oldList.size()));
+		List<EmployeeEntity> listEmployeeEntity = employeeReposiotry.findAll();
 			// lấy ngày hiện tại ra kiểm tra
 		   Calendar c = Calendar.getInstance();
 		   DateTime nowDate = new DateTime();
-		 
+		   DateTime lastDate = new DateTime();
+		   nowDate.setDate(c.get(Calendar.YEAR), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.MONTH));
 		   
-		   System.out.println(c.get(Calendar.YEAR));
-		   System.out.println(c.get(Calendar.DAY_OF_MONTH));
-		   System.out.println(c.get(Calendar.MONTH));
+		   for (EmployeeEntity item : listEmployeeEntity) {
+			   TimeKeepingEntity t = new TimeKeepingEntity();
+			   t.setDateStart(nowDate+"");
+			   t.setEmployee(item);
+			   t.setMinimumTime(6);
+			   t.setStatus(1);
+		}
+		   
+		 
+		
 		return null;
+	}
+
+	private void get(int year) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
