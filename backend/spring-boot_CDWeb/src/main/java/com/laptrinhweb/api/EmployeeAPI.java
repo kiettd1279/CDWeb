@@ -18,22 +18,21 @@ import com.laptrinhweb.service.IEmployeeService;
 @CrossOrigin
 @RestController
 public class EmployeeAPI {
-	
+
 	@Autowired
 	private IEmployeeService employeeServe;
-	
-	
-@GetMapping(value  = "/employee")
-	public List<EmployeeDTO> getAll(){
-	return employeeServe.findAll();
-}
 
-	@PostMapping(value = "/employee")
+	@GetMapping(value = "/employees")
+	public List<EmployeeDTO> getAll() {
+		return employeeServe.findAll();
+	}
+
+	@PostMapping(value = "/employees")
 	public EmployeeDTO craet(@RequestBody EmployeeDTO model) {
 		return employeeServe.save(model);
 	}
 
-	@PutMapping(value  = "/employee")
+	@PutMapping(value = "/employees")
 	public EmployeeDTO update(@RequestBody EmployeeDTO model, @PathVariable("id") long id) {
 		model.setId(id);
 		return employeeServe.save(model);

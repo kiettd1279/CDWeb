@@ -42,4 +42,19 @@ public class DeparmentService implements IDeparmentService {
 		return listDTO;
 	}
 
+	@Override
+	public DeparmentDTO save(DeparmentDTO dto) {
+		DeparmentEntity newEntity ;
+		if (dto.getId() != null) {
+			DeparmentEntity oldEntity = departmanetReposiotry.findOne(dto.getId());
+			newEntity = departmentConverter.toEntity(dto, oldEntity);
+			
+		}else {
+			newEntity = departmentConverter.toEntity(dto);
+		}
+		newEntity = departmanetReposiotry.save(newEntity);
+		
+		return departmentConverter.toDTO(newEntity);
+	}
+
 }
