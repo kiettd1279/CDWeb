@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -45,9 +45,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ModalModule } from 'ngx-bootstrap/modal';
+//import { JobTestComponent } from './views/job-test/job-test.component';
+import { Route } from '@angular/compiler/src/core';
+import { Routes, RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// const routes : Routes = [ 
+// {path:'jobCV' ,component : JobTestComponent}
+// ];
 
 @NgModule({
   imports: [
+    
+
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
@@ -64,7 +74,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     TabsModule.forRoot(),
     ModalModule.forRoot(),
     ChartsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    NgbModule
 
   ],
   declarations: [
@@ -73,7 +84,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+   // JobTestComponent
   ],
   providers: [{
     provide: LocationStrategy,

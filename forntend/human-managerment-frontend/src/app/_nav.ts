@@ -34,6 +34,29 @@ export const navItems: INavData[] = [
     ]
   },
   {
+    name: 'Quản lý công việc',
+    url: '/quan-ly-cong-viec',
+    icon: 'icon-briefcase',
+    children: [
+      {
+        name: 'Thông tin công việc',
+        url: '/quan-ly-cong-viec/thong-tin-cong-viec'
+      },
+      {
+        name: 'Job Test',
+        url: '/quan-ly-cong-viec/congviet'
+      },
+      {
+        name: 'Phòng ban',
+        url: '/quan-ly-cong-viec/phong-ban'
+      },
+      {
+        name: 'Lich công tác',
+        url: '/quan-ly-cong-viec/lich-cong-tac'
+      }
+    ]
+  },
+  {
     name: 'Quản lý thời gian',
     url: '/quan-ly-thoi-gian',
     icon: 'icon-clock',
@@ -45,8 +68,40 @@ export const navItems: INavData[] = [
       {
         name: 'Khung giờ',
         url: '/quan-ly-thoi-gian/khung-gio'
+      },
+      {
+        name: 'Time Test',
+        url: '/quan-ly-thoi-gian/time-test'
       }
     ]
+  },
+  {
+    name: 'Quản lý chấm công',
+    url: '/quan-ly-cham-cong',
+    icon: 'icon-check',
+  },
+  {
+    name: 'Quản lý vị trí',
+    url: '/quan-ly-vị-tri',
+    icon: 'icon-location-pin',
+    children: [
+      {
+        name: 'Phường-Xã',
+        url: '/quan-ly-vi-tri/phuong-xa'
+      },
+      {
+        name: 'Quận-Huyện',
+        url: '/quan-ly-vi-tri/quan-huyen'
+      },
+      {
+        name: 'Tỉnh-Thành phố',
+        url: '/quan-ly-vi-tri/tinh-thanh-pho'
+      }
+    ]
+  },
+  {
+    title: true,
+    name: 'Component'
   },
   {
     name: 'Base',

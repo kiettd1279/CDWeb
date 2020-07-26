@@ -65,7 +65,7 @@ export class BasicInfoComponent implements OnInit {
     .subscribe((res) => {
       this.job = res.job;
     });
-    this.http.get<any>('../../../../assets/employee.json')
+    this.http.get<any>('../../../../employee')
     .subscribe((res) => {
       this.employees = res.employee;
     });
