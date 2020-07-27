@@ -10,9 +10,10 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 @NgModule({
-  declarations: [BasicInfoComponent, DegreeComponent, IdentificationComponent],
+  declarations: [BasicInfoComponent, DegreeComponent, IdentificationComponent, EmployeeListComponent],
   imports: [
     CommonModule,
     EmployeeManagermentRoutingModule,

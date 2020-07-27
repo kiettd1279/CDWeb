@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { IdentificationComponent } from './identification/identification.component';
 import { DegreeComponent } from './degree/degree.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,13 @@ const routes: Routes = [
       title: 'Quản lý nhân viên'
     },
     children: [
+      { 
+        path: 'danh-sach-nhan-vien', 
+        component: EmployeeListComponent,
+        data: {
+          title: 'Danh sách nhân viên'
+        },
+      },
       { 
         path: 'thong-tin-co-ban', 
         component: BasicInfoComponent,
